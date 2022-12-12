@@ -1,0 +1,11 @@
+:root {
+    --white: white;
+}
+
+body {
+    background-color: black;
+    height: 98.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

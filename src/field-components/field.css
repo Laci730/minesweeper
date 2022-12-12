@@ -1,0 +1,48 @@
+.field {
+    display: grid;
+    place-items: center;
+    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: repeat(3, 50px);
+    padding: 0.5rem;
+    gap: 0.5rem;
+    counter-reset: tile;
+}
+
+.tile {
+    animation: field-appears 300ms linear;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    user-select: none;
+    background: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+}
+
+/* .tile::before {
+    counter-increment: tile;
+    content: counter(tile);
+} */
+
+.tile:hover {
+    height: 55px;
+    width: 55px;
+    background: #b4b4b4;
+    transition: height 100ms linear;
+}
+
+@keyframes field-appears {
+    from {
+        width: 0px;
+        height: 0px;
+    }
+
+    to {
+        width: 50px;
+        height: 50px;
+    }
+}
