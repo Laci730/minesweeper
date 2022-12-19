@@ -1,18 +1,32 @@
 import React from "react";
-import { useState } from "react";
 import "./field.css"
 
-const Tile = () => {
-    const [isFlipped, flipIt] = React.useState(1);
+class Tile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { content: "", flipped: false };
 
-    /* function flipTile() {
-        ;
-    } */
+        this.handleClick = this.handleClick.bind(this);
+    }
 
+    handleClick() {
+        this.setState({ content: this.props.count, flipped: true });
+    }
 
-    return (
-        <div className="tile" onClick={() => flipIt(isFlipped + 1)}>{isFlipped}</div>
-    );
+    render() {
+        if (this.props.count === 9) {
+            return (
+                <div className="tile red" onClick={this.handleClick}>
+                    {this.state.content}
+                </ div >
+            );
+        }
+        return (
+            <div className="tile" onClick={this.handleClick}>
+                {this.state.content}
+            </div >
+        );
+    }
 }
 
 export default Tile;

@@ -1,19 +1,18 @@
 import React from "react";
 import Tile from "./tile";
-import "./field.css"
+import "./field.css";
+import generateField from "../game-scripts/tile-numbers";
+
 
 const Field = () => {
+
+    const items = generateField(400, 40);
+
     return (
         <div className="field">
-            <Tile className="a" />
-            <Tile className="b" />
-            <Tile className="c" />
-            <Tile className="b" />
-            <Tile className="c" />
-            <Tile className="d" />
-            <Tile className="c" />
-            <Tile className="d" />
-            <Tile className="e" />
+            {items.map(item => {
+                return <Tile key={item.id} count={item.value} />;
+            })}
         </div>
     );
 }
